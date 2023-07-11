@@ -17,6 +17,7 @@ import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
 import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
+import article from 'schemas/documents/article'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -26,6 +27,7 @@ export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
   project.name,
+  article.name,
 ]
 
 export default defineConfig({
@@ -43,6 +45,7 @@ export default defineConfig({
       duration,
       page,
       project,
+      article,
       // Objects
       milestone,
       timeline,

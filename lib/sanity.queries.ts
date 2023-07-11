@@ -13,6 +13,14 @@ export const homePageQuery = groq`
       tags,
       title,
     },
+    featuredArticles[]->{
+      _type,
+      coverImage,
+      overview,
+      "slug": slug.current,
+      tags,
+      title,
+    },
     title,
   }
 `
@@ -46,8 +54,27 @@ export const projectBySlugQuery = groq`
   }
 `
 
+export const articleBySlugQuery = groq`
+  *[_type == "article" && slug.current == $slug][0] {
+    _id,
+    client,
+    coverImage,
+    description,
+    duration,
+    overview,
+    site,
+    "slug": slug.current,
+    tags,
+    title,
+  }
+`
+
 export const projectPaths = groq`
   *[_type == "project" && slug.current != null].slug.current
+`
+
+export const articlePaths = groq`
+  *[_type == "article" && slug.current != null].slug.current
 `
 
 export const pagePaths = groq`

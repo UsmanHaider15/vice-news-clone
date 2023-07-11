@@ -11,8 +11,14 @@ export interface HomePageProps {
 
 export function HomePage({ data }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
+  const {
+    overview = [],
+    showcaseProjects = [],
+    featuredArticles = [],
+    title = '',
+  } = data ?? {}
 
+  console.log('featuredArticles', featuredArticles)
   return (
     <div className="space-y-20">
       {/* Header */}
@@ -22,6 +28,8 @@ export function HomePage({ data }: HomePageProps) {
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project._type, project.slug)
+            console.log('project href', href)
+
             if (!href) {
               return null
             }
@@ -33,7 +41,24 @@ export function HomePage({ data }: HomePageProps) {
           })}
         </div>
       )}
+      {featuredArticles && featuredArticles.length > 0 && (
+        <div className="mx-auto max-w-[100rem] rounded-md border">
+          {featuredArticles.map((project, key) => {
+            console.log('project', project)
+            const href = resolveHref(project._type, project.slug)
+            console.log('article href', href)
 
+            if (!href) {
+              return null
+            }
+            return (
+              <Link key={key} href={href}>
+                <ProjectListItem project={project} odd={key % 2} />
+              </Link>
+            )
+          })}
+        </div>
+      )}
       {/* Workaround: scroll to top on route change */}
       <ScrollUp />
     </div>

@@ -71,6 +71,19 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'featuredArticles',
+      title: 'Featured Articles',
+      description:
+        'These are the projects that will appear first on your landing page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'article' }],
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {
