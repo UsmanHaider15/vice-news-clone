@@ -68,21 +68,6 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'duration',
-      title: 'Duration',
-      type: 'duration',
-    }),
-    defineField({
-      name: 'client',
-      title: 'Client',
-      type: 'string',
-    }),
-    defineField({
-      name: 'site',
-      title: 'Site',
-      type: 'url',
-    }),
-    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',

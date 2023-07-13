@@ -60,6 +60,15 @@ export interface ProjectPayload {
   title?: string
 }
 
+export interface ArticlePayload {
+  coverImage?: Image
+  description?: PortableTextBlock[]
+  overview?: PortableTextBlock[]
+  slug: string
+  tags?: string[]
+  title?: string
+}
+
 export interface SettingsPayload {
   footer?: PortableTextBlock[]
   menuItems?: MenuItem[]
