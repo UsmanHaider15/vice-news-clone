@@ -24,7 +24,7 @@ export function HomePage({ data }: HomePageProps) {
       {/* Header */}
       {title && <Header centered title={title} description={overview} />}
       {/* Showcase projects */}
-      {showcaseProjects && showcaseProjects.length > 0 && (
+      {/* {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project._type, project.slug)
@@ -40,7 +40,7 @@ export function HomePage({ data }: HomePageProps) {
             )
           })}
         </div>
-      )}
+      )} */}
       {featuredArticles && featuredArticles.length > 0 && (
         <div className="mx-auto max-w-[100rem] rounded-md border">
           {featuredArticles.map((project, key) => {
