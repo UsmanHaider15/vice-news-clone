@@ -67,13 +67,13 @@ export function HomePage({ data }: HomePageProps) {
               )
             }
             return (
-              <div className="grid grid-cols-1 gap-4 md:col-span-1 md:grid-cols-1 md:gap-4">
-                <div className="order-2 col-span-1 md:order-1">
+              <div className="flex flex-row-reverse md:col-span-1 md:grid md:grid-cols-1 md:gap-4">
+                <div className="w-1/4 md:order-1 md:w-full">
                   {imageUrl && (
                     <Image src={imageUrl} alt="" width={500} height={280} />
                   )}
                 </div>
-                <div className="order-1 col-span-1 md:order-2">
+                <div className="w-3/4 md:order-2">
                   <h2>{article.title}</h2>
                 </div>
               </div>
