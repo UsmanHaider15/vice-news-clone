@@ -8,7 +8,7 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-5 bg-white/80 px-4 py-4 backdrop-blur md:px-16 md:py-5 lg:px-32">
+    <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-4 border-b border-gray-700 bg-black px-4 py-4 backdrop-blur md:px-16 md:py-4 lg:px-32">
       {menuItems &&
         menuItems.map((menuItem, key) => {
           const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -18,10 +18,10 @@ export function Navbar({ menuItems }: NavbarProps) {
           return (
             <Link
               key={key}
-              className={`text-lg hover:text-black md:text-xl ${
+              className={`font-bold hover:text-gray-600 md:text-lg ${
                 menuItem?._type === 'home'
                   ? 'font-extrabold text-black'
-                  : 'text-gray-600'
+                  : 'text-white'
               }`}
               href={href}
             >

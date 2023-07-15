@@ -29,12 +29,14 @@ export default async function IndexRoute({
     fallbackSettings
 
   const layout = (
-    <div className="flex min-h-screen flex-col bg-white text-black">
+    <div className="flex min-h-screen flex-col justify-center bg-white text-black">
       {preview && <PreviewBanner />}
-      <Navbar menuItems={settings.menuItems} />
-      <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">{children}</div>
-      <Footer footer={settings.footer as PortableTextBlock[]} />
-      <IntroTemplate />
+      <div className="mx-auto flex-grow 2xl:max-w-screen-2xl">
+        <Navbar menuItems={settings.menuItems} />
+        <div>{children}</div>
+        <Footer footer={settings.footer as PortableTextBlock[]} />
+        <IntroTemplate />
+      </div>
     </div>
   )
 

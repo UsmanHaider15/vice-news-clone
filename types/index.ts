@@ -27,13 +27,22 @@ export interface ShowcaseProject {
   title?: string
 }
 
+export interface FeaturedArticle {
+  _type: string
+  coverImage?: Image
+  overview?: PortableTextBlock[]
+  slug?: string
+  tags?: string[]
+  title?: string
+}
+
 // Page payloads
 
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
-  featuredArticles?: ShowcaseProject[]
+  featuredArticles?: FeaturedArticle[]
   title?: string
 }
 
