@@ -22,10 +22,6 @@ export function HomePage({ data }: HomePageProps) {
     title = '',
   } = data ?? {}
 
-  console.log(
-    'featuredArticles',
-    featuredArticles.map((article) => article.overview)
-  )
   return (
     <div className="space-y-20">
       {/* Header */}
@@ -56,13 +52,18 @@ export function HomePage({ data }: HomePageProps) {
 
             if (!key) {
               return (
-                <div className="grid grid-cols-1 md:col-span-3 md:grid-cols-3">
-                  <div className="order-2 col-span-1 md:order-1 md:col-span-2">
+                <div className="relative grid grid-cols-1 md:col-span-3 md:grid-cols-3">
+                  <div className="relative order-2 col-span-1 h-96 md:order-1 md:col-span-2 md:h-full">
                     {imageUrl && (
-                      <Image src={imageUrl} alt="" width={1245} height={700} />
+                      <Image
+                        src={imageUrl}
+                        alt=""
+                        fill={true}
+                        style={{ objectFit: 'cover' }}
+                      />
                     )}
                   </div>
-                  <div className="order-1 col-span-1 flex bg-red-500 md:order-2">
+                  <div className="order-1 col-span-1 flex md:order-2">
                     <div className="flex-grow flex-col justify-center border-white bg-black sm:p-10 lg:flex-1">
                       <div className="mb-2 w-full font-sans text-base">
                         <a
@@ -108,13 +109,18 @@ export function HomePage({ data }: HomePageProps) {
               )
             }
             return (
-              <div className="flex flex-row-reverse border md:col-span-1 md:grid md:grid-cols-1">
-                <div className="w-1/4 md:order-1 md:w-full">
+              <div className="grid grid-cols-4 border md:grid-cols-1">
+                <div className="relative col-span-1 md:col-span-1 md:h-48">
                   {imageUrl && (
-                    <Image src={imageUrl} alt="" width={625} height={350} />
+                    <Image
+                      src={imageUrl}
+                      alt=""
+                      fill={true}
+                      style={{ objectFit: 'cover' }}
+                    />
                   )}
                 </div>
-                <div className="w-3/4 md:order-2">
+                <div className="col-span-3 md:col-span-1">
                   <div className="flex w-full flex-grow flex-col justify-center bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
                     <div className="mb-2 w-full text-left font-sans text-base">
                       <a
@@ -132,7 +138,7 @@ export function HomePage({ data }: HomePageProps) {
                         {article.title}
                       </a>
                     </h3>
-                    <p className="mx-0 mb-0 mt-2 hidden w-full font-sans text-base font-normal leading-7 text-black sm:block lg:text-base">
+                    <p className="mx-0 mb-0 mt-2 hidden w-full font-sans text-base font-normal leading-7 text-black md:block lg:text-base">
                       <CustomPortableText
                         value={article.overview as PortableTextBlock[]}
                       />
