@@ -110,7 +110,7 @@ export function HomePage({ data }: HomePageProps) {
             }
             return (
               <div className="grid grid-cols-4 border md:grid-cols-1">
-                <div className="relative col-span-1 md:col-span-1 md:h-48">
+                <div className="relative order-last col-span-1 md:order-first md:col-span-1	md:h-48">
                   {imageUrl && (
                     <Image
                       src={imageUrl}
@@ -121,7 +121,7 @@ export function HomePage({ data }: HomePageProps) {
                   )}
                 </div>
                 <div className="col-span-3 md:col-span-1">
-                  <div className="flex w-full flex-grow flex-col justify-center bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
+                  <div className="flex w-full flex-grow flex-col bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
                     <div className="mb-2 w-full text-left font-sans text-base">
                       <a
                         className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer bg-transparent text-black underline"
