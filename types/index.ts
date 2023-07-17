@@ -78,6 +78,7 @@ export interface ArticlePayload {
   tags?: string[]
   title?: string
   publishedAt: string
+  authorName: string
 }
 
 export interface SettingsPayload {

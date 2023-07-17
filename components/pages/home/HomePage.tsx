@@ -124,12 +124,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                 <div className="col-span-3 md:col-span-1">
                   <div className="flex w-full flex-grow flex-col bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
                     <div className="mb-2 w-full text-left font-sans text-base">
-                      <a
-                        className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer bg-transparent text-black underline"
-                        href="/en_asia/section/tech"
-                      >
-                        Tech
-                      </a>
+                      {article.tags}
                     </div>
                     <h3 className="m-0 w-full font-sans text-xl font-black leading-6 text-black">
                       <a
@@ -166,7 +161,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
       {/* Latest articles */}
       {latestArticles && latestArticles.length > 0 && (
         <div>
-          {featuredArticles.map((article) => {
+          {latestArticles.map((article) => {
             const imageUrl =
               article.coverImage &&
               urlForImage(article.coverImage)?.fit('crop').url()
@@ -196,7 +191,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                   </div>
                   <div className="mx-0 mb-0 mt-2 block w-full font-mono text-xs uppercase leading-4">
                     <div className="text-xs uppercase text-black">
-                      Mitchell Prothero
+                      {article.authorName}
                     </div>
                     <time
                       className="mt-2 block text-xs uppercase text-black"

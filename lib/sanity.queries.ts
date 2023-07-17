@@ -38,6 +38,7 @@ export const latestArticlesQuery = groq`*[_type == 'article']| order(publishedAt
   publishedAt,
   tags,
   title,
+  "authorName": author->name,
 }`
 
 export const pagesBySlugQuery = groq`

@@ -142,5 +142,11 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'author',
+      type: 'reference',
+      title: 'Author',
+      to: [{ type: 'author' }],
+    }),
   ],
 })

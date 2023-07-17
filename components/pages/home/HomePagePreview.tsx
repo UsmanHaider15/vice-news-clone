@@ -1,15 +1,23 @@
 'use client'
 
-import { homePageQuery } from 'lib/sanity.queries'
+import { homePageQuery, latestArticlesQuery } from 'lib/sanity.queries'
 import { useLiveQuery } from 'next-sanity/preview'
-import type { HomePagePayload } from 'types'
+import type { ArticlePayload, HomePagePayload } from 'types'
 
 import { HomePage, type HomePageProps } from './HomePage'
 
-export default function HomePagePreview({ data: initialData }: HomePageProps) {
+export default function HomePagePreview({
+  data: initialData,
+  latestArticles: articles,
+}: HomePageProps) {
   const [data] = useLiveQuery<HomePagePayload | null>(
     initialData,
     homePageQuery
+  )
+
+  const [latestArticles] = useLiveQuery<ArticlePayload[] | null>(
+    articles,
+    latestArticlesQuery
   )
 
   if (!data) {
@@ -20,5 +28,5 @@ export default function HomePagePreview({ data: initialData }: HomePageProps) {
     )
   }
 
-  return <HomePage data={data} />
+  return <HomePage data={data} latestArticles={latestArticles} />
 }
