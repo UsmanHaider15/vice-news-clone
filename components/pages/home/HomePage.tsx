@@ -89,11 +89,11 @@ export function HomePage({ data }: HomePageProps) {
                           <h2>{article.title}</h2>
                         </a>
                       </h3>
-                      <p className="mx-0 mt-2 w-full font-sans text-base leading-7 text-white">
+                      <div className="mx-0 mt-2 w-full font-sans text-base leading-7 text-white">
                         <CustomPortableText
                           value={article.overview as PortableTextBlock[]}
                         />
-                      </p>
+                      </div>
                       <div className="mx-0 mt-2 w-full font-mono text-xs uppercase leading-4 text-white">
                         <div className="uppercase">Romano Santos</div>
                         <time
@@ -161,6 +161,8 @@ export function HomePage({ data }: HomePageProps) {
           })}
         </div>
       )}
+
+      {/* Latest articles */}
 
       {/* Workaround: scroll to top on route change */}
       <ScrollUp />

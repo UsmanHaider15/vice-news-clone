@@ -18,6 +18,7 @@ export const homePageQuery = groq`
       coverImage,
       overview,
       "slug": slug.current,
+      publishedAt,
       tags,
       title,
     },

@@ -77,6 +77,11 @@ export default defineType({
       },
     }),
     defineField({
+      type: 'datetime',
+      name: 'publishedAt',
+      title: 'Published At',
+    }),
+    defineField({
       name: 'description',
       title: 'Project Description',
       type: 'array',

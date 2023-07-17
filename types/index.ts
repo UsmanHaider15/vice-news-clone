@@ -34,6 +34,7 @@ export interface FeaturedArticle {
   slug?: string
   tags?: string[]
   title?: string
+  publishedAt: string
 }
 
 // Page payloads
