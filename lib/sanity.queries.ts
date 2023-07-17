@@ -30,6 +30,16 @@ export const homePageTitleQuery = groq`
   *[_type == "home"][0].title
 `
 
+export const latestArticlesQuery = groq`*[_type == 'article']| order(publishedAt desc){
+  _type,
+  coverImage,
+  overview,
+  "slug": slug.current,
+  publishedAt,
+  tags,
+  title,
+}`
+
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,

@@ -27,7 +27,7 @@ export interface ShowcaseProject {
   title?: string
 }
 
-export interface FeaturedArticle {
+export interface Article {
   _type: string
   coverImage?: Image
   overview?: PortableTextBlock[]
@@ -43,7 +43,7 @@ export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
-  featuredArticles?: FeaturedArticle[]
+  featuredArticles?: Article[]
   title?: string
 }
 
@@ -77,6 +77,7 @@ export interface ArticlePayload {
   slug: string
   tags?: string[]
   title?: string
+  publishedAt: string
 }
 
 export interface SettingsPayload {
