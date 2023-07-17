@@ -8,6 +8,7 @@ import Link from 'next/link'
 import type { ArticlePayload, HomePagePayload } from 'types'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import type { PortableTextBlock } from '@portabletext/types'
+import { Url } from 'next/dist/shared/lib/router/router'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -158,6 +159,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
         </div>
       )}
 
+      <h1>Latest Articles</h1>
       {/* Latest articles */}
       {latestArticles && latestArticles.length > 0 && (
         <div>
@@ -166,8 +168,8 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
               article.coverImage &&
               urlForImage(article.coverImage)?.fit('crop').url()
             return (
-              <div className="flex flex-row bg-white text-left leading-5 text-black sm:flex-row-reverse sm:items-start sm:px-0 sm:py-10">
-                <div className="sm:min-w-1/2 w-full flex-grow p-5 text-left sm:py-0 sm:pl-5 sm:pr-10">
+              <div className="grid grid-cols-1 border bg-white text-left leading-5 text-black sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10">
+                <div className="order-2 sm:order-1 sm:pr-10">
                   <div className="mb-2 block w-full font-sans text-base text-black sm:text-base">
                     <a
                       href="/en_asia/section/news"
@@ -177,12 +179,9 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                     </a>
                   </div>
                   <h3 className="m-0 block w-full font-sans text-3xl font-black leading-[41.6px] sm:text-3xl">
-                    <a
-                      href="https://www.vice.com/en/article/bvj783/ukraine-russia-crimea-bridge-attack"
-                      className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer bg-transparent leading-[41.6px] text-black no-underline"
-                    >
+                    <Link href={resolveHref('article', article.slug) as Url}>
                       {article.title}
-                    </a>
+                    </Link>
                   </h3>
                   <div className="mx-0 mb-0 mt-2 hidden w-full font-sans font-normal leading-7 sm:block">
                     <CustomPortableText
@@ -201,29 +200,20 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                     </time>
                   </div>
                 </div>
-                <div className="bg-neutral-200 relative w-40 flex-grow bg-opacity-10 text-left sm:w-1/3 sm:min-w-[150px] sm:max-w-[150px] lg:w-1/2">
-                  <a
-                    href="https://www.vice.com/en/article/bvj783/ukraine-russia-crimea-bridge-attack"
-                    className="hover:text-neutral-400 focus:text-neutral-400 relative block h-full w-full cursor-pointer bg-transparent text-black sm:h-auto"
-                  >
-                    <div className="relative h-full cursor-pointer sm:h-auto">
-                      <div>
-                        <picture className="absolute flex h-full w-full justify-center overflow-hidden leading-none text-transparent transition-opacity duration-300">
-                          <div className="relative order-last col-span-1 md:order-first md:col-span-1	md:h-48">
-                            {imageUrl && (
-                              <Image
-                                src={imageUrl}
-                                alt=""
-                                fill={true}
-                                style={{ objectFit: 'cover' }}
-                              />
-                            )}
-                          </div>{' '}
-                        </picture>
-                      </div>
+                <div className="relative col-span-1 md:order-first md:col-span-1">
+                  <Link href={resolveHref('article', article.slug) as Url}>
+                    <div>
+                      {imageUrl && (
+                        <Image
+                          src={imageUrl}
+                          alt=""
+                          fill={true}
+                          style={{ objectFit: 'cover' }}
+                        />
+                      )}
                     </div>
-                  </a>
-                </div>
+                  </Link>
+                </div>{' '}
               </div>
             )
           })}
