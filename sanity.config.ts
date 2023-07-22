@@ -20,6 +20,7 @@ import settings from 'schemas/singletons/settings'
 import article from 'schemas/documents/article'
 import author from 'schemas/documents/author'
 import categoryPage from 'schemas/documents/categoryPage'
+import category from 'schemas/documents/category'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -51,6 +52,7 @@ export default defineConfig({
       project,
       article,
       author,
+      category,
       // Objects
       milestone,
       timeline,

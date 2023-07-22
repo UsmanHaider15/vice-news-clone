@@ -23,6 +23,13 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'overview',
       description:
         'Used both for the <meta> description tag for SEO, and the personal website subheader.',
@@ -50,6 +57,14 @@ export default defineType({
         }),
       ],
       validation: (rule) => rule.max(155).required(),
+    }),
+    defineField({
+      name: 'featuredArticle',
+      title: 'Featured Article',
+      description:
+        'This is the project that will appear first on your landing page.',
+      type: 'reference',
+      to: [{ type: 'article' }],
     }),
     defineField({
       type: 'array',

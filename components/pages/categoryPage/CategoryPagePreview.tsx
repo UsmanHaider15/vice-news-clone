@@ -1,13 +1,17 @@
 'use client'
 
-import { categoryPagesBySlugQuery } from 'lib/sanity.queries'
+import {
+  categoryPagesBySlugQuery,
+  latestArticlesByCategoryQuery,
+} from 'lib/sanity.queries'
 import { useLiveQuery } from 'next-sanity/preview'
-import type { CategoryPagePayload } from 'types'
+import type { ArticlePayload, CategoryPagePayload } from 'types'
 
 import { CategoryPage, type CategoryPageProps } from './CategoryPage'
 
 export default function CategoryPagePreview({
   data: initialData,
+  latestArticles: articles,
 }: CategoryPageProps) {
   const [data] = useLiveQuery<CategoryPagePayload | null>(
     initialData,
@@ -17,5 +21,15 @@ export default function CategoryPagePreview({
     }
   )
 
-  return <CategoryPage data={data ?? initialData} />
+  const [latestArticles] = useLiveQuery<ArticlePayload[] | null>(
+    articles,
+    latestArticlesByCategoryQuery,
+    {
+      categoryRef: data?.category?._ref,
+    }
+  )
+
+  return (
+    <CategoryPage data={data ?? initialData} latestArticles={latestArticles} />
+  )
 }

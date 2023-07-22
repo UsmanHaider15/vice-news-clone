@@ -41,6 +41,17 @@ export const latestArticlesQuery = groq`*[_type == 'article']| order(publishedAt
   "authorName": author->name,
 }`
 
+export const latestArticlesByCategoryQuery = groq`*[_type == 'article' && category._ref == $categoryRef] | order(publishedAt desc) {
+  _type,
+  coverImage,
+  overview,
+  "slug": slug.current,
+  publishedAt,
+  tags,
+  title,
+  "authorName": author->name,
+}`
+
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
     _id,
@@ -52,13 +63,23 @@ export const pagesBySlugQuery = groq`
 `
 
 export const categoryPagesBySlugQuery = groq`
-  *[_type == "categoryPage" && slug.current == $slug][0] {
-    _id,
-    body,
+*[_type == "categoryPage" && slug.current == "tech"][0] {
+  _id,
+  body,
+  overview,
+  title,
+  "slug": slug.current,
+  category,
+  featuredArticle->{
+    _type,
+    coverImage,
     overview,
-    title,
     "slug": slug.current,
+    publishedAt,
+    tags,
+    title,
   }
+}
 `
 
 export const projectBySlugQuery = groq`

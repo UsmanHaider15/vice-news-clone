@@ -61,6 +61,7 @@ export interface CategoryPagePayload {
   overview?: PortableTextBlock[]
   title?: string
   slug?: string
+  featuredArticle?: ArticlePayload
 }
 
 export interface ProjectPayload {

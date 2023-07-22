@@ -8,12 +8,13 @@ import {
   settingsQuery,
   categoryPagesBySlugQuery,
   categoryPagePaths,
+  latestArticlesByCategoryQuery,
 } from 'lib/sanity.queries'
 import { defineMetadata } from 'lib/utils.metadata'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
-import { SettingsPayload, CategoryPagePayload } from 'types'
+import { SettingsPayload, CategoryPagePayload, ArticlePayload } from 'types'
 
 type Props = {
   params: { slug: string }
@@ -57,13 +58,20 @@ export default async function CategoryPageSlugRoute({ params }: Props) {
     }
   )
 
+  const latestArticles = await client.fetch<ArticlePayload[] | null>(
+    latestArticlesByCategoryQuery,
+    {
+      categoryRef: data?.category?._ref,
+    }
+  )
+
   if (!data && !preview) {
     notFound()
   }
 
   return preview ? (
-    <CategoryPagePreview data={data} />
+    <CategoryPagePreview data={data} latestArticles={latestArticles} />
   ) : (
-    <CategoryPage data={data} />
+    <CategoryPage data={data} latestArticles={latestArticles} />
   )
 }

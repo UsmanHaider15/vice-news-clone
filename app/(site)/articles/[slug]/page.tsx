@@ -12,7 +12,7 @@ import { defineMetadata } from 'lib/utils.metadata'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
-import { ProjectPayload } from 'types'
+import { ArticlePayload } from 'types'
 
 type Props = {
   params: { slug: string }
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const [homePageTitle, project] = await Promise.all([
     client.fetch<string | null>(homePageTitleQuery),
-    client.fetch<ProjectPayload | null>(articleBySlugQuery, {
+    client.fetch<ArticlePayload | null>(articleBySlugQuery, {
       slug,
     }),
   ])
@@ -48,7 +48,7 @@ export default async function ArticleSlugRoute({ params }: Props) {
   const { slug } = params
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
   const client = getClient(preview)
-  const data = await client.fetch<ProjectPayload | null>(articleBySlugQuery, {
+  const data = await client.fetch<ArticlePayload | null>(articleBySlugQuery, {
     slug,
   })
 
