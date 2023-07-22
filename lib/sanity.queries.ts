@@ -51,6 +51,16 @@ export const pagesBySlugQuery = groq`
   }
 `
 
+export const categoryPagesBySlugQuery = groq`
+  *[_type == "categoryPage" && slug.current == $slug][0] {
+    _id,
+    body,
+    overview,
+    title,
+    "slug": slug.current,
+  }
+`
+
 export const projectBySlugQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
@@ -88,6 +98,10 @@ export const articlePaths = groq`
 
 export const pagePaths = groq`
   *[_type == "page" && slug.current != null].slug.current
+`
+
+export const categoryPagePaths = groq`
+  *[_type == "categoryPage" && slug.current != null].slug.current
 `
 
 export const settingsQuery = groq`

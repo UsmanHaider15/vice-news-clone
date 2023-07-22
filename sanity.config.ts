@@ -19,6 +19,7 @@ import home from 'schemas/singletons/home'
 import settings from 'schemas/singletons/settings'
 import article from 'schemas/documents/article'
 import author from 'schemas/documents/author'
+import categoryPage from 'schemas/documents/categoryPage'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -27,6 +28,7 @@ const title =
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
+  categoryPage.name,
   project.name,
   article.name,
 ]
@@ -45,6 +47,7 @@ export default defineConfig({
       // Documents
       duration,
       page,
+      categoryPage,
       project,
       article,
       author,

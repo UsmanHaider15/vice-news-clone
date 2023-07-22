@@ -7,6 +7,8 @@ export function resolveHref(
       return '/'
     case 'page':
       return slug ? `/${slug}` : undefined
+    case 'categoryPage':
+      return slug ? `/categoryPage/${slug}` : undefined
     case 'project':
       return slug ? `/projects/${slug}` : undefined
     case 'article':

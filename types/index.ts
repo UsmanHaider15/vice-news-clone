@@ -55,6 +55,14 @@ export interface PagePayload {
   slug?: string
 }
 
+export interface CategoryPagePayload {
+  body?: PortableTextBlock[]
+  name?: string
+  overview?: PortableTextBlock[]
+  title?: string
+  slug?: string
+}
+
 export interface ProjectPayload {
   client?: string
   coverImage?: Image
