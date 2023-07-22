@@ -63,7 +63,7 @@ export const pagesBySlugQuery = groq`
 `
 
 export const categoryPagesBySlugQuery = groq`
-*[_type == "categoryPage" && slug.current == "tech"][0] {
+*[_type == "categoryPage" && slug.current == $slug][0] {
   _id,
   body,
   overview,
