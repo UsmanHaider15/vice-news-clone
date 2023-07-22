@@ -35,7 +35,7 @@ export default async function IndexRoute({
         <Navbar menuItems={settings.menuItems} />
         <div>{children}</div>
         <Footer footer={settings.footer as PortableTextBlock[]} />
-        <IntroTemplate />
+        {/* <IntroTemplate /> */}
       </div>
     </div>
   )

@@ -159,16 +159,19 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
         </div>
       )}
 
-      <h1>Latest Articles</h1>
+      <h1 className="text-5xl font-black">Latest Articles</h1>
       {/* Latest articles */}
       {latestArticles && latestArticles.length > 0 && (
-        <div>
+        <>
           {latestArticles.map((article) => {
             const imageUrl =
               article.coverImage &&
               urlForImage(article.coverImage)?.fit('crop').url()
             return (
-              <div className="grid grid-cols-1 border bg-white text-left leading-5 text-black sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10">
+              <div
+                style={{ marginTop: 20 }}
+                className="grid grid-cols-1 border bg-white text-left text-black  sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10"
+              >
                 <div className="order-2 sm:order-1 sm:pr-10">
                   <div className="mb-2 block w-full font-sans text-base text-black sm:text-base">
                     <a
@@ -217,7 +220,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
               </div>
             )
           })}
-        </div>
+        </>
       )}
 
       {/* Workaround: scroll to top on route change */}
