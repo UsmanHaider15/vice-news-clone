@@ -106,6 +106,17 @@ export const articleBySlugQuery = groq`
     "slug": slug.current,
     tags,
     title,
+    publishedAt,
+    "category": category->{
+      _type, 
+      title,
+    },    
+    "author": author->{
+      _type,
+      name,
+      location,
+      image,
+    }
   }
 `
 

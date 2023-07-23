@@ -87,7 +87,20 @@ export interface ArticlePayload {
   tags?: string[]
   title?: string
   publishedAt: string
-  authorName: string
+  author: AuthorPayload
+  category: CategoryPayload
+}
+
+export interface CategoryPayload {
+  _type: string
+  title: string
+}
+
+export interface AuthorPayload {
+  _type: string
+  name: string
+  location: string
+  image: Image
 }
 
 export interface SettingsPayload {

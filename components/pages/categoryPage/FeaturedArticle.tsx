@@ -9,7 +9,6 @@ export interface FeaturedArticleProps {
 }
 
 const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
-  console.log('article it is', article)
   const imageUrl =
     article.coverImage && urlForImage(article.coverImage)?.fit('crop').url()
 

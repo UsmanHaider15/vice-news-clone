@@ -10,16 +10,24 @@ export interface ArticlePageProps {
 
 export function ArticlePage({ data }: ArticlePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { coverImage, description, overview, tags, title } = data ?? {}
+  const { coverImage, description, overview, tags, title, author, category } =
+    data ?? {}
 
   return (
     <div>
       <div className="mb-20 space-y-6">
         {/* Header */}
-        <Header title={title} description={overview} />
+        {author && category && (
+          <Header
+            title={title}
+            description={overview}
+            author={author}
+            category={category}
+          />
+        )}
 
+        {/* Image  */}
         <div className="rounded-md border">
-          {/* Image  */}
           <ImageBox
             image={coverImage}
             alt={`Cover image for ${title}`}
