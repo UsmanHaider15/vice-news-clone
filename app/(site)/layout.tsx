@@ -31,7 +31,7 @@ export default async function IndexRoute({
   const layout = (
     <div className="flex min-h-screen flex-col justify-center bg-white text-black">
       {preview && <PreviewBanner />}
-      <div className="mx-auto flex-grow 2xl:max-w-screen-2xl">
+      <div className="mx-auto max-w-screen-2xl">
         <Navbar menuItems={settings.menuItems} />
         <div>{children}</div>
         <Footer footer={settings.footer as PortableTextBlock[]} />
