@@ -34,7 +34,7 @@ export default async function IndexRoute({
       style={{ backgroundColor: '#f2f2f2' }}
     >
       {preview && <PreviewBanner />}
-      <div className="mx-auto md:min-w-1600">
+      <div className="mx-auto md:min-w-1600 md:max-w-screen-2xl">
         <Navbar menuItems={settings.menuItems} />
         <div className="bg-white">{children}</div>
         <Footer footer={settings.footer as PortableTextBlock[]} />
