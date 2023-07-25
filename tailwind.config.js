@@ -15,6 +15,11 @@ module.exports = {
       sans: 'var(--font-sans)',
       serif: 'var(--font-serif)',
     },
+    extend: {
+      minWidth: {
+        1600: '1600px',
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography')],
 }
