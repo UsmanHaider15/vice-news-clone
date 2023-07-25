@@ -14,40 +14,61 @@ export function ArticlePage({ data }: ArticlePageProps) {
     data ?? {}
 
   return (
-    <div>
+    <div className="mx-auto max-w-7xl pt-5">
+      {/* Category */}
+      {category && (
+        <div className="mb-2 mt-2 w-full font-sans text-xl font-medium leading-6 sm:mb-5 sm:text-xl">
+          <a
+            className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer text-black underline"
+            href="/en/section/horoscopes"
+          >
+            {category.title}
+          </a>
+        </div>
+      )}{' '}
+      {/* Title */}
+      {title && (
+        <span className="text-black">
+          <div className="bg-transparent">
+            <h1 className="m-0 p-0 font-sans text-5xl font-black leading-none sm:text-5xl">
+              {title}
+            </h1>
+          </div>
+        </span>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-3">
         <div className="col-span-1 md:col-span-2">
           {/* Header */}
           {author && category && (
-            <Header
-              title={title}
-              description={overview}
-              author={author}
-              category={category}
-            />
-          )}
-
-          {/* Image  */}
-          <div className="rounded-md border">
-            <ImageBox
-              image={coverImage}
-              alt={`Cover image for ${title}`}
-              classesWrapper="relative aspect-[16/9]"
-            />
+            <Header description={overview} author={author} />
+          )}{' '}
+        </div>
+        <div></div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="col-span-1 md:col-span-2">
+          <div className="max-w-2xl">
+            {/* Image  */}
+            <div className="rounded-md border">
+              <ImageBox
+                image={coverImage}
+                alt={`Cover image for ${title}`}
+                classesWrapper="relative aspect-[16/9]"
+              />
+            </div>
+            {/* Description */}
+            {description && (
+              <CustomPortableText
+                paragraphClasses="font-serif text-xl"
+                value={description}
+              />
+            )}
           </div>
-
-          {/* Description */}
-          {description && (
-            <CustomPortableText
-              paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
-              value={description}
-            />
-          )}
-          {/* Workaround: scroll to top on route change */}
-          <ScrollUp />
         </div>
         <div>Related Articles</div>
       </div>
+      {/* Workaround: scroll to top on route change */}
+      <ScrollUp />
     </div>
   )
 }

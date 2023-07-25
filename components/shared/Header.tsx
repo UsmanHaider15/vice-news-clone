@@ -8,40 +8,18 @@ import { BiLogoSnapchat } from 'react-icons/bi'
 interface HeaderProps {
   centered?: boolean
   description?: any[]
-  title?: string
   author: AuthorPayload
-  category: CategoryPayload
 }
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false, author, category } = props
-  if (!description && !title) {
+  const { description, centered = false, author } = props
+  if (!description) {
     return null
   }
   return (
-    <div className="mx-auto border-t-2 border-black pt-5 leading-5 text-black">
-      {/* Category */}
-      <div className="mb-4 w-full font-sans text-xl font-medium leading-6 sm:mb-5 sm:text-xl">
-        <a
-          className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer text-black underline"
-          href="/en/section/horoscopes"
-        >
-          {category.title}
-        </a>
-      </div>
-
-      {/* Title */}
-      {title && (
-        <span className="text-black">
-          <div className="bg-transparent">
-            <h1 className="m-0 p-0 font-sans text-5xl font-black leading-none sm:text-5xl">
-              {title}
-            </h1>
-          </div>
-        </span>
-      )}
+    <div className="mx-auto pt-5 leading-5 text-black">
       {/* Description */}
       {description && (
-        <div className="pt-2 text-black lg:w-2/3 lg:pr-10">
+        <div className="pt-2 text-black">
           <CustomPortableText
             value={description}
             paragraphClasses="mb-4 font-sans text-xl font-normal leading-8 text-black sm:mb-5 sm:text-xl"
@@ -50,7 +28,7 @@ export function Header(props: HeaderProps) {
       )}
 
       {/* <AuthorCard author={author} /> */}
-      <div className="border-neutral-200 mb-5 flex items-center whitespace-nowrap border-t px-0 pb-0 pt-4 text-xs leading-4 sm:px-0 sm:py-5">
+      <div className="border-neutral-200 mb-5 flex items-center whitespace-nowrap border-t px-0 pb-0 pt-4 text-xs leading-4 sm:px-0">
         <div className="mr-4">
           <time dateTime="2023-07-21T21:00:00.000Z" itemProp="datePublished">
             22 July 2023, 2:00am
