@@ -11,6 +11,7 @@ import { getClient } from 'lib/sanity.client'
 import { settingsQuery } from 'lib/sanity.queries'
 import { draftMode } from 'next/headers'
 import { SettingsPayload } from 'types'
+import Menu from 'components/shared/Menu'
 
 const fallbackSettings: SettingsPayload = {
   menuItems: [],
@@ -35,8 +36,11 @@ export default async function IndexRoute({
     >
       {preview && <PreviewBanner />}
       <div className="mx-auto flex min-h-screen flex-col bg-white md:min-w-1600 md:max-w-screen-2xl">
-        <Navbar menuItems={settings.menuItems} />
-        <div className="flex-grow">{children}</div>
+        <div>
+          <Menu />
+        </div>
+        {/* <Navbar menuItems={settings.menuItems} />
+        <div className="flex-grow">{children}</div> */}
         <Footer footer={settings.footer as PortableTextBlock[]} />
         {/* <IntroTemplate /> */}
       </div>

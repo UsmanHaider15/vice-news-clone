@@ -3,7 +3,7 @@ import { CustomPortableText } from 'components/shared/CustomPortableText'
 
 export function Footer({ footer }: { footer?: PortableTextBlock[] }) {
   return (
-    <footer className="mx-auto my-0 w-full bg-black px-5 py-10 leading-5 sm:px-10 sm:py-20">
+    <footer className="mx-auto my-0 w-full flex-grow bg-black px-5 py-10 leading-5 sm:px-10 sm:py-20">
       <nav
         className="mb-2 mt-4"
         role="navigation"
