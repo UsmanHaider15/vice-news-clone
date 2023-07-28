@@ -11,7 +11,6 @@ import { getClient } from 'lib/sanity.client'
 import { settingsQuery } from 'lib/sanity.queries'
 import { draftMode } from 'next/headers'
 import { SettingsPayload } from 'types'
-import Menu from 'components/shared/Menu'
 
 const fallbackSettings: SettingsPayload = {
   menuItems: [],

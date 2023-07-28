@@ -21,6 +21,7 @@ import article from 'schemas/documents/article'
 import author from 'schemas/documents/author'
 import categoryPage from 'schemas/documents/categoryPage'
 import category from 'schemas/documents/category'
+import menu from 'schemas/singletons/menu'
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
@@ -29,6 +30,7 @@ const title =
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
+  menu.name,
   categoryPage.name,
   project.name,
   article.name,
@@ -45,6 +47,7 @@ export default defineConfig({
       // Singletons
       home,
       settings,
+      menu,
       // Documents
       duration,
       page,
@@ -60,12 +63,12 @@ export default defineConfig({
   },
   plugins: [
     deskTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, settings, menu]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode({ apiVersion, previewSecretId }),
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, settings.name, menu.name]),
     // Add the "Open preview" action
     productionUrl({
       apiVersion,

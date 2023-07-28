@@ -1,5 +1,3 @@
-import { ProjectListItem } from 'components/pages/home/ProjectListItem'
-import { Header } from 'components/shared/Header'
 import ScrollUp from 'components/shared/ScrollUp'
 import { urlForImage } from 'lib/sanity.image'
 import { resolveHref } from 'lib/sanity.links'
@@ -25,7 +23,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
   } = data ?? {}
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-20 bg-white">
       {/* Header */}
       {/* {title && <Header centered title={title} description={overview} />} */}
       {/* Showcase projects */}
@@ -159,7 +157,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="smd:grid-cols-3 grid grid-cols-1">
         <div className="col-span-1 md:col-span-2">
           {' '}
           <h1 className="text-5xl font-black">Latest Articles</h1>
