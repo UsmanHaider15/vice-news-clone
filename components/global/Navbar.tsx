@@ -11,12 +11,17 @@ interface NavbarProps {
 export function Navbar({ menuItems }: NavbarProps) {
   return (
     <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-4 border-b border-gray-700 bg-black py-4 text-xl backdrop-blur md:px-8 md:py-6">
-      <div className="cursor-pointer font-sans font-black leading-5 text-white hover:text-gray-600 md:text-lg">
+      <Link
+        key="menu"
+        className="cursor-pointer font-sans font-black leading-5 text-white hover:text-gray-600 md:text-lg"
+        href={'/menu'}
+      >
         <GiHamburgerMenu size={24} />
-      </div>
+      </Link>
+      <div></div>
 
       <Link
-        key={'key'}
+        key={'home'}
         className={`font-extrabold text-white hover:text-gray-600 md:text-lg`}
         href={'/'}
       >
