@@ -7,9 +7,10 @@ import { Url } from 'next/dist/shared/lib/router/router'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableTextBlock } from 'sanity'
-import type { ArticlePayload, CategoryPagePayload } from 'types'
+import type { Article, ArticlePayload, CategoryPagePayload } from 'types'
 import FeaturedArticle from './FeaturedArticle'
 import LatestArticles from 'components/shared/LatestArticles'
+import CoverArticle from 'components/shared/CoverArticle'
 
 export interface CategoryPageProps {
   data: CategoryPagePayload | null
@@ -23,7 +24,7 @@ export function CategoryPage({ data, latestArticles }: CategoryPageProps) {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-3">
-        {featuredArticle && <FeaturedArticle article={featuredArticle} />}
+        {featuredArticle && <CoverArticle article={featuredArticle} />}
       </div>
 
       {latestArticles && <LatestArticles latestArticles={latestArticles} />}

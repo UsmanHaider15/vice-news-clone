@@ -28,13 +28,13 @@ export interface ShowcaseProject {
 }
 
 export interface Article {
-  _type: string
   coverImage?: Image
   overview?: PortableTextBlock[]
   slug?: string
   tags?: string[]
   title?: string
   publishedAt: string
+  _type: string
 }
 
 // Page payloads
@@ -43,7 +43,7 @@ export interface HomePagePayload {
   footer?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
-  featuredArticles?: Article[]
+  featuredArticles?: ArticlePayload[]
   title?: string
 }
 
@@ -81,12 +81,12 @@ export interface ProjectPayload {
 
 export interface ArticlePayload {
   coverImage?: Image
-  description?: PortableTextBlock[]
   overview?: PortableTextBlock[]
   slug: string
   tags?: string[]
   title?: string
   publishedAt: string
+  description?: PortableTextBlock[]
   author: AuthorPayload
   category: CategoryPayload
 }
