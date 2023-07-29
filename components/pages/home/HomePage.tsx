@@ -7,6 +7,7 @@ import type { ArticlePayload, HomePagePayload } from 'types'
 import { CustomPortableText } from 'components/shared/CustomPortableText'
 import type { PortableTextBlock } from '@portabletext/types'
 import { Url } from 'next/dist/shared/lib/router/router'
+import LatestArticles from 'components/shared/LatestArticles'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -156,6 +157,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
           })}
         </div>
       )}
+      {latestArticles && <LatestArticles latestArticles={latestArticles} />}
       <h1 className="p-2 text-5xl font-black">Latest Articles</h1>
 
       <div
