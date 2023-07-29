@@ -23,7 +23,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
   } = data ?? {}
 
   return (
-    <div className="space-y-20 bg-white">
+    <div className="space-y-20">
       {/* Header */}
       {/* {title && <Header centered title={title} description={overview} />} */}
       {/* Showcase projects */}
@@ -156,11 +156,14 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
           })}
         </div>
       )}
+      <h1 className="p-2 text-5xl font-black">Latest Articles</h1>
 
-      <div className="smd:grid-cols-3 grid grid-cols-1">
-        <div className="col-span-1 md:col-span-2">
+      <div
+        className="grid grid-cols-1 border-t md:grid-cols-3"
+        style={{ marginTop: 0 }}
+      >
+        <div className="col-span-1 mb-8 md:col-span-2">
           {' '}
-          <h1 className="text-5xl font-black">Latest Articles</h1>
           {/* Latest articles */}
           {latestArticles && latestArticles.length > 0 && (
             <>
@@ -169,10 +172,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                   article.coverImage &&
                   urlForImage(article.coverImage)?.fit('crop').url()
                 return (
-                  <div
-                    style={{ marginTop: 20 }}
-                    className="grid grid-cols-1 border bg-white text-left text-black  sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10"
-                  >
+                  <div className="grid grid-cols-1 border border-l-0 border-t-0 bg-white text-left text-black sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10">
                     <div className="order-2 sm:order-1 sm:pr-10">
                       <div className="mb-2 block w-full font-sans text-base text-black sm:text-base">
                         <a
