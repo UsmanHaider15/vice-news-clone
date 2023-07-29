@@ -19,6 +19,14 @@ module.exports = {
       minWidth: {
         1600: '1600px',
       },
+      height: {
+        100: '100px',
+        200: '200px',
+        300: '300px',
+        400: '400px',
+        500: '500px',
+        600: '600px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
