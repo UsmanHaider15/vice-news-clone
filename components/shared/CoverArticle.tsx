@@ -15,7 +15,7 @@ export default function CoverArticle({ article }: { article: ArticlePayload }) {
         )}
       </div>
       <div className="order-1 col-span-1 flex md:order-2">
-        <div className="flex-grow flex-col justify-center border-white bg-black sm:p-10 lg:flex-1">
+        <div className="flex-grow flex-col justify-center border-white bg-black p-5 md:p-10 lg:flex-1">
           <div className="mb-2 w-full font-sans text-base">
             <a
               className="cursor-pointer bg-transparent text-white hover:text-white focus:text-white"
