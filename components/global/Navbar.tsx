@@ -25,12 +25,12 @@ export function Navbar({ menuItems }: NavbarProps) {
         {' '}
         <Link
           key={'home'}
-          className={`item-center flex justify-center md:hidden`}
+          className={`item-center flex justify-center md:ml-4 md:justify-start`}
           href={'/'}
         >
           <BiLogoHtml5
             size={32}
-            className="-translate-x-6 hover:text-gray-600"
+            className="-translate-x-6 hover:text-gray-600 md:-translate-x-0"
             color="white"
           />
         </Link>
