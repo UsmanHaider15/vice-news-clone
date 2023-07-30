@@ -10,40 +10,49 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-4 border-b border-gray-700 bg-black py-4 text-xl backdrop-blur md:px-8 md:py-6">
-      <Link
-        key="menu"
-        className="cursor-pointer font-sans font-black leading-5 text-white hover:text-gray-600 md:text-lg"
-        href={'/menu'}
-      >
-        <GiHamburgerMenu size={24} />
-      </Link>
-      <div></div>
-
-      <Link
-        key={'home'}
-        className={`font-extrabold text-white hover:text-gray-600 md:text-lg`}
-        href={'/'}
-      >
-        <BiLogoHtml5 size={32} />
-      </Link>
-
-      {menuItems &&
-        menuItems.map((menuItem, key) => {
-          const href = resolveHref(menuItem?._type, menuItem?.slug)
-          if (!href) {
-            return null
-          }
-          return (
-            <Link
-              key={key}
-              className={`font-extrabold text-white hover:text-gray-600 md:text-lg`}
-              href={href}
-            >
-              {menuItem.title}
-            </Link>
-          )
-        })}
+    <div className="flex bg-black px-4 py-4 text-white">
+      <div className="">
+        {' '}
+        <Link
+          key="menu"
+          className="cursor-pointer font-sans font-black leading-5 text-white hover:text-gray-600 md:text-lg"
+          href={'/menu'}
+        >
+          <GiHamburgerMenu size={24} />
+        </Link>
+      </div>
+      <div className="flex-grow md:flex">
+        {' '}
+        <Link
+          key={'home'}
+          className={`item-center flex justify-center md:hidden`}
+          href={'/'}
+        >
+          <BiLogoHtml5
+            size={32}
+            className="-translate-x-6 hover:text-gray-600"
+            color="white"
+          />
+        </Link>
+        {menuItems &&
+          menuItems.map((menuItem, key) => {
+            const href = resolveHref(menuItem?._type, menuItem?.slug)
+            if (!href) {
+              return null
+            }
+            return (
+              <Link
+                key={key}
+                className={`${
+                  !key ? `ml-4` : ''
+                } mr-4 hidden font-extrabold text-white hover:text-gray-600 md:block md:text-lg`}
+                href={href}
+              >
+                {menuItem.title}
+              </Link>
+            )
+          })}
+      </div>
     </div>
   )
 }

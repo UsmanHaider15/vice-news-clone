@@ -12,7 +12,7 @@ export interface MenuPageProps {
 
 export function MenuPage({ menuItems }: MenuPageProps) {
   return (
-    <div className="absolute top-0 z-10 h-fit md:min-w-1600 md:max-w-screen-2xl">
+    <div>
       {' '}
       <div className="sticky top-0 z-10 flex flex-wrap items-center gap-x-4 border-b border-gray-700 bg-black py-4 text-xl backdrop-blur md:px-8 md:py-6">
         <Link
