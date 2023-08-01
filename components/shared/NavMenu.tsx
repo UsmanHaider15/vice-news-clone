@@ -1,19 +1,16 @@
-import { AiFillFacebook } from 'react-icons/ai'
-import { BsInstagram, BsTwitter } from 'react-icons/bs'
-import { GrMail } from 'react-icons/gr'
-import { RxCross2 } from 'react-icons/rx'
 import Link from 'next/link'
 import { resolveHref } from 'lib/sanity.links'
 import { MenuItem } from 'types'
 
-export interface MenuPageProps {
+export interface NavMenuProps {
   menuItems?: MenuItem[]
 }
 
-export function MenuPage({ menuItems }: MenuPageProps) {
+export function NavMenu({ menuItems }: NavMenuProps) {
   return (
-    <div className="grid bg-black p-10 sm:grid-cols-1 md:grid-cols-2">
-      <div className="col-span-1">
+    <div className="relative">
+      <div className="absolute grid w-screen bg-black p-10 sm:grid-cols-1 md:grid-cols-2">
+        {/* <div className="col-span-1">
         <div
           className="leading-5 text-black sm:mr-12 sm:flex sm:flex-col"
           aria-label="dropdown-menu"
@@ -76,24 +73,25 @@ export function MenuPage({ menuItems }: MenuPageProps) {
             <GrMail color="white" size={24} />
           </div>
         </div>
-      </div>
-      <div className="col-span-1 grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
-        {menuItems &&
-          menuItems?.map((menuItem, key) => {
-            const href = resolveHref(menuItem?._type, menuItem?.slug)
-            if (!href) {
-              return null
-            }
-            return (
-              <div className="col-span-1">
-                <div className="border-b pb-3 pt-2 text-2xl font-black text-white">
-                  <Link key={key} href={href}>
-                    {menuItem.title}
-                  </Link>{' '}
+      </div> */}
+        <div className="col-span-1 grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
+          {menuItems &&
+            menuItems?.map((menuItem, key) => {
+              const href = resolveHref(menuItem?._type, menuItem?.slug)
+              if (!href) {
+                return null
+              }
+              return (
+                <div className="col-span-1">
+                  <div className="border-b pb-3 pt-2 text-2xl font-black text-white">
+                    <Link key={key} href={href}>
+                      {menuItem.title}
+                    </Link>{' '}
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+        </div>
       </div>
     </div>
   )

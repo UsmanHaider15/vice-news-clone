@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { MenuItem } from 'types'
 import { BiLogoHtml5 } from 'react-icons/bi'
 import NavbarMenu from 'components/shared/NavbarMenu'
-import { MenuPage } from 'components/pages/menu/MenuPage'
+import { NavMenu } from 'components/shared/NavMenu'
 
 interface NavbarProps {
   menuItems?: MenuItem[]
@@ -12,10 +12,10 @@ interface NavbarProps {
 export function Navbar({ menuItems }: NavbarProps) {
   return (
     <div className="flex bg-black px-4 py-4 text-white">
-      <div className="">
+      <div className="block md:hidden">
         {' '}
         <NavbarMenu>
-          <MenuPage menuItems={menuItems} />
+          <NavMenu menuItems={menuItems} />
         </NavbarMenu>
       </div>
       <div className="flex-grow md:flex">
