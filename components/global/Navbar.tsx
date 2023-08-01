@@ -1,8 +1,9 @@
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { MenuItem } from 'types'
-import { GiHamburgerMenu } from 'react-icons/gi'
 import { BiLogoHtml5 } from 'react-icons/bi'
+import NavbarMenu from 'components/shared/NavbarMenu'
+import { MenuPage } from 'components/pages/menu/MenuPage'
 
 interface NavbarProps {
   menuItems?: MenuItem[]
@@ -13,13 +14,9 @@ export function Navbar({ menuItems }: NavbarProps) {
     <div className="flex bg-black px-4 py-4 text-white">
       <div className="">
         {' '}
-        <Link
-          key="menu"
-          className="cursor-pointer font-sans font-black leading-5 text-white hover:text-gray-600 md:text-lg"
-          href={'/menu'}
-        >
-          <GiHamburgerMenu size={24} />
-        </Link>
+        <NavbarMenu>
+          <MenuPage menuItems={menuItems} />
+        </NavbarMenu>
       </div>
       <div className="flex-grow md:flex">
         {' '}
