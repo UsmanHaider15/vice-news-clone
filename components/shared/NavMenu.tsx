@@ -8,8 +8,8 @@ export interface NavMenuProps {
 
 export function NavMenu({ menuItems }: NavMenuProps) {
   return (
-    <div className="relative h-screen w-screen overflow-y-hidden">
-      <div className="absolute grid h-full w-full bg-black p-10 sm:grid-cols-1 md:grid-cols-2">
+    <div className="fixed left-0 top-20 z-10 h-screen w-screen overflow-hidden bg-black">
+      <div className="grid p-10 sm:grid-cols-1 md:grid-cols-2">
         <div className="col-span-1 grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
           {menuItems &&
             menuItems?.map((menuItem, key) => {

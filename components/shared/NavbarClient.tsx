@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 
-export default function NavbarMenu({
+export default function NavbarClient({
   children,
 }: {
   children: React.ReactNode

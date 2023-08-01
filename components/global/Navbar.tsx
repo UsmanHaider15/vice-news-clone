@@ -1,8 +1,7 @@
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { MenuItem } from 'types'
-import { BiLogoHtml5 } from 'react-icons/bi'
-import NavbarMenu from 'components/shared/NavbarMenu'
+import NavbarMenu from 'components/shared/NavbarClient'
 import { NavMenu } from 'components/shared/NavMenu'
 
 interface NavbarProps {
@@ -11,14 +10,14 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="flex bg-black px-4 py-4 text-white">
+    <div className="flex flex-row-reverse justify-between bg-black px-4 py-4 text-white md:flex-row">
       <div className="block md:hidden">
         {' '}
         <NavbarMenu>
           <NavMenu menuItems={menuItems} />
         </NavbarMenu>
       </div>
-      <div className="flex-grow md:flex">
+      <div className="md:flex md:flex-grow">
         {' '}
         <Link
           key={'home'}
