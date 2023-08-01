@@ -21,6 +21,9 @@ export const homePageQuery = groq`
       publishedAt,
       tags,
       title,
+      author->{
+      name,
+      }
     },
     title,
   }

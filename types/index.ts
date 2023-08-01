@@ -83,24 +83,18 @@ export interface ArticlePayload {
   coverImage?: Image
   overview?: PortableTextBlock[]
   slug: string
-  tags?: string[]
+  tags: string[]
   title?: string
   publishedAt: string
   description?: PortableTextBlock[]
-  author: AuthorPayload
-  category: CategoryPayload
-}
-
-export interface CategoryPayload {
-  _type: string
-  title: string
+  author?: AuthorPayload
 }
 
 export interface AuthorPayload {
   _type: string
   name: string
-  location: string
-  image: Image
+  location?: string
+  image?: Image
 }
 
 export interface SettingsPayload {

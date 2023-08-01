@@ -53,7 +53,9 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                 <div className="col-span-3 md:col-span-1">
                   <div className="flex w-full flex-grow flex-col bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
                     <div className="mb-2 w-full text-left font-sans text-base">
-                      {article.tags}
+                      <Link href={resolveHref('tag', article.tags[0]) as Url}>
+                        {article.tags}
+                      </Link>
                     </div>
                     <h3 className="m-0 w-full font-sans text-xl font-black leading-6 text-black">
                       <Link
@@ -70,13 +72,13 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                     </div>
                     <div className="mx-0 mb-0 mt-2 block w-full font-mono text-xs uppercase leading-4 text-black">
                       <div className="text-left text-xs uppercase">
-                        Janus Rose
+                        {article.author?.name}
                       </div>
                       <time
                         className="mt-2 block text-left text-xs uppercase"
                         dateTime="2023-07-07T13:10"
                       >
-                        07.07.23
+                        {article.publishedAt}
                       </time>
                     </div>
                   </div>
