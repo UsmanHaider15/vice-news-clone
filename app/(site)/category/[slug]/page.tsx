@@ -61,7 +61,7 @@ export default async function CategoryPageSlugRoute({ params }: Props) {
   const latestArticles = await client.fetch<ArticlePayload[] | null>(
     latestArticlesByCategoryQuery,
     {
-      categoryRef: data?.category?._ref,
+      slug,
     }
   )
 

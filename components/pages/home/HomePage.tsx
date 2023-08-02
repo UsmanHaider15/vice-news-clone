@@ -51,13 +51,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                     <div className="w-full text-left font-sans text-sm">
                       <Link
                         href={
-                          resolveHref(
-                            'categoryPage',
-                            article.category?.title
-                              .toLowerCase()
-                              .replace(/\s+/g, '-')
-                              .slice(0, 200)
-                          ) as Url
+                          resolveHref('category', article.category?.slug) as Url
                         }
                       >
                         {article.category?.title}

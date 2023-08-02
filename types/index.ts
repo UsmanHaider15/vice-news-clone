@@ -94,6 +94,7 @@ export interface ArticlePayload {
 
 export interface Category {
   title: string
+  slug: string
 }
 
 export interface AuthorPayload {

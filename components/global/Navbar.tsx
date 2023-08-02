@@ -9,6 +9,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ menuItems }: NavbarProps) {
+  console.log('menuItems', menuItems)
   return (
     <div className="flex flex-row-reverse justify-between bg-black px-4 py-4 text-white md:flex-row">
       <div className="block md:hidden">

@@ -38,11 +38,8 @@ export default function LatestArticles({
                         <Link
                           href={
                             resolveHref(
-                              'categoryPage',
-                              article.category?.title
-                                .toLowerCase()
-                                .replace(/\s+/g, '-')
-                                .slice(0, 200)
+                              'category',
+                              article.category?.slug
                             ) as Url
                           }
                         >

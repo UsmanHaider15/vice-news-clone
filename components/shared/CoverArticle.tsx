@@ -25,15 +25,7 @@ export default function CoverArticle({ article }: { article: ArticlePayload }) {
           <div className="mb-2 w-full font-sans text-base">
             {article.category && (
               <Link
-                href={
-                  resolveHref(
-                    'categoryPage',
-                    article.category.title
-                      .toLowerCase()
-                      .replace(/\s+/g, '-')
-                      .slice(0, 200)
-                  ) as Url
-                }
+                href={resolveHref('categoryPage', article.category.slug) as Url}
                 className="cursor-pointer bg-transparent text-white hover:text-white focus:text-white"
               >
                 {article.category.title}
