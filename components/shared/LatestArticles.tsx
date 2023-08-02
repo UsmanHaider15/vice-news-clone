@@ -6,6 +6,7 @@ import { CustomPortableText } from './CustomPortableText'
 import { PortableTextBlock } from 'sanity'
 import Image from 'next/image'
 import { ArticlePayload } from 'types'
+import humanifyDate from 'app/utils/humanifyDate'
 
 export default function LatestArticles({
   latestArticles,
@@ -31,9 +32,9 @@ export default function LatestArticles({
                   urlForImage(article.coverImage)?.fit('crop').url()
 
                 return (
-                  <div className="grid grid-cols-1 border border-l-0 border-t-0 bg-white text-left text-black sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10">
-                    <div className="order-2 sm:order-1 sm:pr-10">
-                      <div className="mb-2 block w-full font-sans text-base text-black sm:text-base">
+                  <div className="grid grid-cols-12 border">
+                    <div className="col-span-7 p-4">
+                      <div className="pb-2 text-sm font-semibold underline">
                         <Link
                           href={
                             resolveHref(
@@ -48,32 +49,27 @@ export default function LatestArticles({
                           {article.category?.title}
                         </Link>
                       </div>
-                      <h3 className="m-0 block w-full font-sans text-3xl font-black leading-[41.6px] sm:text-3xl">
+                      <h3 className="pb-2 font-extrabold md:text-xl">
                         <Link
                           href={resolveHref('article', article.slug) as Url}
                         >
                           {article.title}
                         </Link>
                       </h3>
-                      <div className="mx-0 mb-0 mt-2 hidden w-full font-sans font-normal leading-7 sm:block">
+                      <div className="m-0 hidden pb-2 md:block">
                         <CustomPortableText
                           value={article.overview as PortableTextBlock[]}
-                        />{' '}
+                        />
                       </div>
-                      <div className="mx-0 mb-0 mt-2 block w-full font-mono text-xs uppercase leading-4">
-                        <div className="text-xs uppercase text-black">
-                          {article.author?.name}
-                        </div>
-                        <time
-                          className="mt-2 block text-xs uppercase text-black"
-                          dateTime="1689602041036"
-                        >
-                          {article.publishedAt}
+                      <div className="">
+                        <div className="text-sm">{article.author?.name}</div>
+                        <time className="text-sm">
+                          {humanifyDate(article.publishedAt)}
                         </time>
                       </div>
                     </div>
-                    <Link href={resolveHref('article', article.slug) as Url}>
-                      <div className="relative col-span-1 h-200 md:order-first md:col-span-1 md:h-300">
+                    <div className="relative col-span-5">
+                      <Link href={resolveHref('article', article.slug) as Url}>
                         {imageUrl && (
                           <Image
                             src={imageUrl}
@@ -82,8 +78,8 @@ export default function LatestArticles({
                             style={{ objectFit: 'cover' }}
                           />
                         )}
-                      </div>
-                    </Link>
+                      </Link>
+                    </div>
                   </div>
                 )
               })}

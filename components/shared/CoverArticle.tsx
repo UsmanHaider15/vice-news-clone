@@ -6,6 +6,7 @@ import { PortableTextBlock } from 'sanity'
 import Link from 'next/link'
 import { resolveHref } from 'lib/sanity.links'
 import { Url } from 'next/dist/shared/lib/router/router'
+import humanifyDate from 'app/utils/humanifyDate'
 
 export default function CoverArticle({ article }: { article: ArticlePayload }) {
   const imageUrl =
@@ -55,7 +56,7 @@ export default function CoverArticle({ article }: { article: ArticlePayload }) {
           <div className="mx-0 mt-2 w-full font-mono text-xs uppercase leading-4 text-white">
             <div className="uppercase">{article.author?.name}</div>
             <time className="mt-2 block uppercase" dateTime="2023-07-07T08:14">
-              {article.publishedAt}
+              {humanifyDate(article.publishedAt)}
             </time>
           </div>
         </div>

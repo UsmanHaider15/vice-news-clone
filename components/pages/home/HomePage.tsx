@@ -9,6 +9,7 @@ import type { PortableTextBlock } from '@portabletext/types'
 import { Url } from 'next/dist/shared/lib/router/router'
 import LatestArticles from 'components/shared/LatestArticles'
 import CoverArticle from 'components/shared/CoverArticle'
+import humanifyDate from 'app/utils/humanifyDate'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -83,7 +84,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                         className="mt-2 block text-left text-xs uppercase"
                         dateTime="2023-07-07T13:10"
                       >
-                        {article.publishedAt}
+                        {humanifyDate(article.publishedAt)}
                       </time>
                     </div>
                   </div>
