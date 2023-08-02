@@ -17,12 +17,7 @@ export interface HomePageProps {
 
 export function HomePage({ data, latestArticles }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const {
-    overview = [],
-    // showcaseProjects = [],
-    featuredArticles = [],
-    title = '',
-  } = data ?? {}
+  const { overview = [], featuredArticles = [], title = '' } = data ?? {}
 
   return (
     <div className="space-y-20">
@@ -53,8 +48,18 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                 <div className="col-span-3 md:col-span-1">
                   <div className="flex w-full flex-grow flex-col bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
                     <div className="mb-2 w-full text-left font-sans text-base">
-                      <Link href={resolveHref('tag', article.tags[0]) as Url}>
-                        {article.tags}
+                      <Link
+                        href={
+                          resolveHref(
+                            'categoryPage',
+                            article.category?.title
+                              .toLowerCase()
+                              .replace(/\s+/g, '-')
+                              .slice(0, 200)
+                          ) as Url
+                        }
+                      >
+                        {article.category?.title}
                       </Link>
                     </div>
                     <h3 className="m-0 w-full font-sans text-xl font-black leading-6 text-black">

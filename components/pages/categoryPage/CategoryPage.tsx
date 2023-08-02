@@ -29,15 +29,6 @@ export function CategoryPage({ data, latestArticles }: CategoryPageProps) {
 
       {latestArticles && <LatestArticles latestArticles={latestArticles} />}
 
-      {/* Body */}
-      {/* {body && (
-          <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-gray-600 text-xl"
-            value={body}
-          />
-        )} */}
-
-      {/* Workaround: scroll to top on route change */}
       <ScrollUp />
     </div>
   )

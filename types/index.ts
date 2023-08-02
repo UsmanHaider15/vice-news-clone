@@ -61,6 +61,7 @@ export interface CategoryPagePayload {
   overview?: PortableTextBlock[]
   title?: string
   slug?: string
+  category?: any
   featuredArticle?: ArticlePayload
 }
 
@@ -88,6 +89,11 @@ export interface ArticlePayload {
   publishedAt: string
   description?: PortableTextBlock[]
   author?: AuthorPayload
+  category?: Category
+}
+
+export interface Category {
+  title: string
 }
 
 export interface AuthorPayload {

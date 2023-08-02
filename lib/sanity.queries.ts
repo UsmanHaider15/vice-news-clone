@@ -5,14 +5,6 @@ export const homePageQuery = groq`
     _id,
     footer,
     overview,
-    showcaseProjects[]->{
-      _type,
-      coverImage,
-      overview,
-      "slug": slug.current,
-      tags,
-      title,
-    },
     featuredArticles[]->{
       _type,
       coverImage,
@@ -21,6 +13,11 @@ export const homePageQuery = groq`
       publishedAt,
       tags,
       title,
+      category->{
+        _type,
+        title,
+        "slug": slug.current,
+      },
       author->{
       name,
       }
@@ -41,10 +38,14 @@ export const latestArticlesQuery = groq`*[_type == 'article']| order(publishedAt
   publishedAt,
   tags,
   title,
-  "authorName": author->name,
+  author->{
+    name,
+  },
+  category->{title}  
 }`
 
-export const latestArticlesByCategoryQuery = groq`*[_type == 'article' && category._ref == $categoryRef] | order(publishedAt desc) {
+export const latestArticlesByCategoryQuery = groq`
+*[_type == 'article' && category._ref == $categoryRef ] | order(publishedAt desc) {
   _type,
   coverImage,
   overview,
@@ -52,8 +53,12 @@ export const latestArticlesByCategoryQuery = groq`*[_type == 'article' && catego
   publishedAt,
   tags,
   title,
-  "authorName": author->name,
-}`
+  author->{
+    name,
+  },
+  category->{title}    
+}
+`
 
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
@@ -81,7 +86,11 @@ export const categoryPagesBySlugQuery = groq`
     publishedAt,
     tags,
     title,
-  }
+    category->{title},
+    author->{
+    name,
+    }
+  },
 }
 `
 

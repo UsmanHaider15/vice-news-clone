@@ -29,16 +29,24 @@ export default function LatestArticles({
                 const imageUrl =
                   article.coverImage &&
                   urlForImage(article.coverImage)?.fit('crop').url()
+
                 return (
                   <div className="grid grid-cols-1 border border-l-0 border-t-0 bg-white text-left text-black sm:grid-cols-2 sm:gap-5 sm:px-0 sm:py-10">
                     <div className="order-2 sm:order-1 sm:pr-10">
                       <div className="mb-2 block w-full font-sans text-base text-black sm:text-base">
-                        <a
-                          href="/en_asia/section/news"
-                          className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer bg-transparent underline"
+                        <Link
+                          href={
+                            resolveHref(
+                              'categoryPage',
+                              article.category?.title
+                                .toLowerCase()
+                                .replace(/\s+/g, '-')
+                                .slice(0, 200)
+                            ) as Url
+                          }
                         >
-                          {article.tags}
-                        </a>
+                          {article.category?.title}
+                        </Link>
                       </div>
                       <h3 className="m-0 block w-full font-sans text-3xl font-black leading-[41.6px] sm:text-3xl">
                         <Link
@@ -54,7 +62,7 @@ export default function LatestArticles({
                       </div>
                       <div className="mx-0 mb-0 mt-2 block w-full font-mono text-xs uppercase leading-4">
                         <div className="text-xs uppercase text-black">
-                          {article.authorName}
+                          {article.author?.name}
                         </div>
                         <time
                           className="mt-2 block text-xs uppercase text-black"
