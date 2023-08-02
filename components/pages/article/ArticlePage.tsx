@@ -14,7 +14,7 @@ export function ArticlePage({ data }: ArticlePageProps) {
     data ?? {}
 
   return (
-    <div className="mx-auto max-w-7xl pt-5">
+    <div>
       {/* Category */}
       {category && (
         <div className="mb-2 mt-2 w-full font-sans text-xl font-medium leading-6 sm:mb-5 sm:text-xl">
