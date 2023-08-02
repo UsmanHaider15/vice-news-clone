@@ -32,8 +32,8 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
               return <CoverArticle article={article} />
             }
             return (
-              <div className="grid grid-cols-4 border md:grid-cols-1">
-                <div className="relative order-last col-span-1 h-200 md:order-first md:col-span-1 md:h-300">
+              <div className="grid grid-cols-12 border md:grid-cols-1">
+                <div className="relative order-last col-span-5 md:order-first md:col-span-1 md:h-300">
                   <Link href={resolveHref('article', article.slug) as Url}>
                     {imageUrl && (
                       <Image
@@ -45,9 +45,9 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                     )}
                   </Link>
                 </div>
-                <div className="col-span-3 md:col-span-1">
-                  <div className="flex w-full flex-grow flex-col bg-white p-5 text-left leading-5 text-black sm:order-2 sm:block sm:h-full sm:p-10">
-                    <div className="mb-2 w-full text-left font-sans text-base">
+                <div className="col-span-7 p-4 md:col-span-1">
+                  <div className="flex w-full flex-col text-black sm:order-2 sm:block sm:h-full  md:text-left">
+                    <div className="w-full text-left font-sans text-sm">
                       <Link
                         href={
                           resolveHref(
@@ -62,7 +62,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
                         {article.category?.title}
                       </Link>
                     </div>
-                    <h3 className="m-0 w-full font-sans text-xl font-black leading-6 text-black">
+                    <h3 className="m-0 w-full font-sans font-black leading-6 text-black md:text-xl">
                       <Link
                         href={resolveHref('article', article.slug) as Url}
                         className="hover:text-neutral-400 focus:text-neutral-400 cursor-pointer bg-transparent leading-6 no-underline"
