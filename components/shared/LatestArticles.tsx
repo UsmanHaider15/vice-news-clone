@@ -33,7 +33,7 @@ export default function LatestArticles({
 
                 return (
                   <div className="grid grid-cols-12 border">
-                    <div className="col-span-7 p-4">
+                    <div className="col-span-7 p-4 md:order-last">
                       <div className="pb-2 text-sm font-semibold underline">
                         <Link
                           href={

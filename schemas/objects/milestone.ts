@@ -30,7 +30,7 @@ export default defineType({
       title: 'Tags',
       type: 'array',
       description:
-        'Tags to help categorize the milestone. For example: name of the university course, name of the project, the position you held within the project etc. ',
+        'Tags to help categorize the milestone. For example: name of the university course, name of the article, the position you held within the article etc. ',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',

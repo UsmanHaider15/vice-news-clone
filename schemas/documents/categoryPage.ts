@@ -53,7 +53,7 @@ export default defineType({
       name: 'featuredArticle',
       title: 'Featured Article',
       description:
-        'This is the project that will appear first on your landing page.',
+        'This is the article that will appear first on your landing page.',
       type: 'reference',
       to: [{ type: 'article' }],
     }),

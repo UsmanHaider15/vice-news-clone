@@ -11,7 +11,6 @@ import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import page from 'schemas/documents/page'
-import project from 'schemas/documents/project'
 import duration from 'schemas/objects/duration'
 import milestone from 'schemas/objects/milestone'
 import timeline from 'schemas/objects/timeline'
@@ -30,7 +29,6 @@ export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
   page.name,
   categoryPage.name,
-  project.name,
   article.name,
 ]
 
@@ -49,7 +47,6 @@ export default defineConfig({
       duration,
       page,
       categoryPage,
-      project,
       article,
       author,
       category,

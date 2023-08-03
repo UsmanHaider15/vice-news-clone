@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
   const client = getClient(preview)
 
-  const [homePageTitle, project] = await Promise.all([
+  const [homePageTitle, article] = await Promise.all([
     client.fetch<string | null>(homePageTitleQuery),
     client.fetch<ArticlePayload | null>(articleBySlugQuery, {
       slug,
@@ -32,9 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defineMetadata({
     baseTitle: homePageTitle ?? undefined,
-    description: project?.overview ? toPlainText(project.overview) : '',
-    image: project?.coverImage,
-    title: project?.title,
+    description: article?.overview ? toPlainText(article.overview) : '',
+    image: article?.coverImage,
+    title: article?.title,
   })
 }
 

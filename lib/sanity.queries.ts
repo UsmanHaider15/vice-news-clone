@@ -125,10 +125,6 @@ export const articleBySlugQuery = groq`
   }
 `
 
-export const projectPaths = groq`
-  *[_type == "project" && slug.current != null].slug.current
-`
-
 export const articlePaths = groq`
   *[_type == "article" && slug.current != null].slug.current
 `
