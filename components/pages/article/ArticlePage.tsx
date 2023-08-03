@@ -107,7 +107,7 @@ export function ArticlePage({ data }: ArticlePageProps) {
             </div>
             <div></div>
           </div>
-          <div className="hidden md:block">Related Articles</div>
+          <div></div>
         </div>
         {/* Workaround: scroll to top on route change */}
         <ScrollUp />
