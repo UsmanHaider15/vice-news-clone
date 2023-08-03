@@ -36,7 +36,7 @@ export default async function IndexRoute({
       {preview && <PreviewBanner />}
       <div className="flex min-h-screen max-w-screen-2xl flex-col bg-white md:mx-auto">
         <Navbar menuItems={settings.menuItems} />
-        <div className="max-w-screen-xl flex-grow">{children}</div>
+        <div className="flex-grow">{children}</div>
         <Footer footer={settings.footer as PortableTextBlock[]} />
         {/* <IntroTemplate /> */}
       </div>
