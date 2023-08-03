@@ -1,37 +1,19 @@
-import { CustomPortableText } from 'components/shared/CustomPortableText'
-// import AuthorCard from './AuthorCard'
-import { AuthorPayload, CategoryPayload } from 'types'
+import humanifyDate from 'app/utils/humanifyDate'
 import { AiFillFacebook } from 'react-icons/ai'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { BiLogoSnapchat } from 'react-icons/bi'
 
 interface HeaderProps {
-  centered?: boolean
-  description?: any[]
-  author: AuthorPayload
+  publishedAt: string
 }
-export function Header(props: HeaderProps) {
-  const { description, centered = false, author } = props
-  if (!description) {
-    return null
-  }
-  return (
-    <div className="mx-auto pt-5 leading-5 text-black">
-      {/* Description */}
-      {description && (
-        <div className="pt-2 text-black">
-          <CustomPortableText
-            value={description}
-            paragraphClasses="mb-4 font-sans text-xl font-normal leading-8 text-black sm:mb-5 sm:text-xl"
-          />
-        </div>
-      )}
 
-      {/* <AuthorCard author={author} /> */}
+export function Header(props: HeaderProps) {
+  return (
+    <div className="mx-auto pt-4 leading-5 text-black">
       <div className="border-neutral-200 mb-5 flex items-center whitespace-nowrap border-t px-0 pb-0 pt-4 text-xs leading-4 sm:px-0">
         <div className="mr-4">
           <time dateTime="2023-07-21T21:00:00.000Z" itemProp="datePublished">
-            22 July 2023, 2:00am
+            {humanifyDate(props.publishedAt)}
           </time>
         </div>
         <span className="inline-block">

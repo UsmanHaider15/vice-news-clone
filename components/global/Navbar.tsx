@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { MenuItem } from 'types'
 import NavbarMenu from 'components/shared/NavbarClient'
 import { NavMenu } from 'components/shared/NavMenu'
+import { AiFillHome } from 'react-icons/ai'
 
 interface NavbarProps {
   menuItems?: MenuItem[]
@@ -10,7 +11,7 @@ interface NavbarProps {
 
 export function Navbar({ menuItems }: NavbarProps) {
   return (
-    <div className="flex flex-row-reverse justify-between bg-black px-4 py-4 text-white md:flex-row">
+    <div className="flex flex-row-reverse justify-between bg-black px-4 py-6 text-white md:flex-row">
       <div className="block md:hidden">
         {' '}
         <NavbarMenu>
@@ -24,7 +25,7 @@ export function Navbar({ menuItems }: NavbarProps) {
           className={`item-center flex justify-center font-extrabold text-white hover:text-gray-600 md:ml-4 md:justify-start`}
           href={'/'}
         >
-          Home
+          <AiFillHome size={24} />
         </Link>
         {menuItems &&
           menuItems.map((menuItem, key) => {
@@ -36,8 +37,8 @@ export function Navbar({ menuItems }: NavbarProps) {
               <Link
                 key={key}
                 className={`${
-                  !key ? `ml-4` : ''
-                } mr-4 hidden font-extrabold text-white hover:text-gray-600 md:block md:text-lg`}
+                  !key ? `ml-5` : ''
+                } mr-5 hidden font-extrabold text-white hover:text-gray-600 md:block md:text-lg`}
                 href={href}
               >
                 {menuItem.title}
