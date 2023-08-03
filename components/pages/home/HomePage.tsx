@@ -90,6 +90,7 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
       )}
       {latestArticles && <LatestArticles latestArticles={latestArticles} />}
 
+      <div className="py-10"></div>
       {/* Workaround: scroll to top on route change */}
       <ScrollUp />
     </div>

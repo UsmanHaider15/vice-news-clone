@@ -27,7 +27,11 @@ export function CategoryPage({ data, latestArticles }: CategoryPageProps) {
         {featuredArticle && <CoverArticle article={featuredArticle} />}
       </div>
 
+      <div className="py-10"></div>
+
       {latestArticles && <LatestArticles latestArticles={latestArticles} />}
+
+      <div className="py-10"></div>
 
       <ScrollUp />
     </div>

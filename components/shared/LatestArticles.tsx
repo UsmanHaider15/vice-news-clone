@@ -14,7 +14,7 @@ export default function LatestArticles({
   latestArticles: ArticlePayload[]
 }) {
   return (
-    <>
+    <div>
       <h1 className="p-2 text-5xl font-black">Latest Articles</h1>
 
       <div
@@ -85,6 +85,6 @@ export default function LatestArticles({
         </div>
         <div></div>
       </div>
-    </>
+    </div>
   )
 }
