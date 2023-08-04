@@ -8,6 +8,8 @@ const serif = PT_Serif({
   subsets: ['latin'],
   weight: ['400', '700'],
 })
+import { Analytics } from '@vercel/analytics/react'
+
 const sans = Inter({
   variable: '--font-sans',
   subsets: ['latin'],
@@ -31,6 +33,7 @@ export default async function RootLayout({
       className={`${mono.variable} ${sans.variable} ${serif.variable}`}
     >
       <body>{children}</body>
+      <Analytics />
     </html>
   )
 }
