@@ -17,13 +17,13 @@ export default defineType({
       name: 'bio',
       title: 'Bio',
       type: 'text',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'location',
       title: 'Location',
       type: 'string',
-      validation: (rule) => rule.required(),
+      // validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'image',
