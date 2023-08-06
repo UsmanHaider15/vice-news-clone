@@ -22,8 +22,7 @@ import categoryPage from 'schemas/documents/categoryPage'
 import category from 'schemas/documents/category'
 
 const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
-  'Next.js Personal Website with Sanity.io'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Sanity.io Magazine'
 
 export const PREVIEWABLE_DOCUMENT_TYPES: string[] = [
   home.name,
