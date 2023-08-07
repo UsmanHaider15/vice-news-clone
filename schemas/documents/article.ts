@@ -81,7 +81,7 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      title: 'article Description',
+      title: 'Article Description',
       type: 'array',
       of: [
         defineArrayMember({

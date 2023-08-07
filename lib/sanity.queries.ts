@@ -82,6 +82,7 @@ export const categoryPagesBySlugQuery = groq`
   body,
   overview,
   title,
+  "slug": slug.current,
   featuredArticle->{
     _type,
     coverImage,

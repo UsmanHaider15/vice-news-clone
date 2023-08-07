@@ -12,12 +12,12 @@ import { CategoryPage, type CategoryPageProps } from './CategoryPage'
 export default function CategoryPagePreview({
   data: initialData,
   latestArticles: articles,
-}: CategoryPageProps) {
+}: any) {
   const [data] = useLiveQuery<CategoryPagePayload | null>(
     initialData,
     categoryPagesBySlugQuery,
     {
-      slug: initialData?.slug,
+      slug: initialData.slug,
     }
   )
 
@@ -25,7 +25,7 @@ export default function CategoryPagePreview({
     articles,
     latestArticlesByCategoryQuery,
     {
-      categoryRef: data?.category?._ref,
+      slug: initialData.slug,
     }
   )
 

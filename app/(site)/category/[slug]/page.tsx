@@ -58,6 +58,7 @@ export default async function CategoryPageSlugRoute({ params }: Props) {
     }
   )
 
+  console.log('slug', slug)
   const latestArticles = await client.fetch<ArticlePayload[] | null>(
     latestArticlesByCategoryQuery,
     {
@@ -65,12 +66,17 @@ export default async function CategoryPageSlugRoute({ params }: Props) {
     }
   )
 
+  console.log('latestArticles', latestArticles)
   if (!data && !preview) {
     notFound()
   }
 
   return preview ? (
-    <CategoryPagePreview data={data} latestArticles={latestArticles} />
+    <CategoryPagePreview
+      slug={slug}
+      data={data}
+      latestArticles={latestArticles}
+    />
   ) : (
     <CategoryPage data={data} latestArticles={latestArticles} />
   )
