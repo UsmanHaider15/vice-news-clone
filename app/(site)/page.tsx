@@ -30,7 +30,13 @@ export async function generateMetadata(): Promise<Metadata> {
   })
 }
 
-export default async function IndexRoute() {
+export default async function IndexRoute({
+  params,
+  searchParams,
+}: {
+  params: { slug: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
   const client = getClient(preview)
   const data = await client.fetch<HomePagePayload | null>(homePageQuery)
