@@ -9,6 +9,7 @@ const serif = PT_Serif({
   weight: ['400', '700'],
 })
 import { Analytics } from '@vercel/analytics/react'
+import { SidebarProvider } from './theme-provider'
 
 const sans = Inter({
   variable: '--font-sans',
@@ -32,7 +33,9 @@ export default async function RootLayout({
       lang="en"
       className={`${mono.variable} ${sans.variable} ${serif.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SidebarProvider>{children}</SidebarProvider>
+      </body>
       <Analytics />
     </html>
   )

@@ -2,13 +2,11 @@
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
+import { useSidebar } from 'app/theme-provider'
 
-export default function NavbarClient({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const [isOpen, setIsOpen] = useState(false)
+export default function SidebarMenuIcon({}: {}) {
+  const { isOpen, setIsOpen } = useSidebar()
+  // const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
@@ -21,7 +19,6 @@ export default function NavbarClient({
           onClick={() => setIsOpen((prev) => !prev)}
         />
       )}
-      {isOpen ? <>{children}</> : null}
     </div>
   )
 }

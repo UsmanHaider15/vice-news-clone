@@ -1,8 +1,7 @@
 import { resolveHref } from 'lib/sanity.links'
 import Link from 'next/link'
 import { MenuItem } from 'types'
-import NavbarMenu from 'components/shared/NavbarClient'
-import { NavMenu } from 'components/shared/NavMenu'
+import SidebarMenuIcon from 'components/shared/SidebarMenuIcon'
 import { AiFillHome } from 'react-icons/ai'
 
 interface NavbarProps {
@@ -14,9 +13,7 @@ export function Navbar({ menuItems }: NavbarProps) {
     <div className="flex flex-row-reverse justify-between bg-black px-4 py-6 text-white md:flex-row">
       <div className="block md:hidden">
         {' '}
-        <NavbarMenu>
-          <NavMenu menuItems={menuItems} />
-        </NavbarMenu>
+        <SidebarMenuIcon />
       </div>
       <div className="md:flex md:flex-grow">
         {' '}
