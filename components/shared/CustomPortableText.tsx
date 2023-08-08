@@ -49,12 +49,14 @@ export function CustomPortableText({
             /> */}
             <div>
               {' '}
-              <NextImage
-                alt={'alt'}
-                src={imageUrl}
-                width={3500}
-                height={3000}
-              />
+              {imageUrl && (
+                <NextImage
+                  alt={'alt'}
+                  src={imageUrl}
+                  width={3500}
+                  height={3000}
+                />
+              )}
             </div>
 
             {value?.caption && (

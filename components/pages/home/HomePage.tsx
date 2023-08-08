@@ -18,7 +18,7 @@ export interface HomePageProps {
 
 export function HomePage({ data, latestArticles }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], featuredArticles = [], title = '' } = data ?? {}
+  const { featuredArticles = [] } = data ?? {}
 
   return (
     <div className="space-y-20">
@@ -30,10 +30,13 @@ export function HomePage({ data, latestArticles }: HomePageProps) {
               urlForImage(article.coverImage)?.fit('crop').url()
 
             if (!key) {
-              return <CoverArticle article={article} />
+              return <CoverArticle article={article} key={key} />
             }
             return (
-              <div className="grid grid-cols-12 border md:grid-cols-1">
+              <div
+                className="grid grid-cols-12 border md:grid-cols-1"
+                key={key}
+              >
                 <div className="relative order-last col-span-5 md:order-first md:col-span-1 md:h-300">
                   <Link href={resolveHref('article', article.slug) as Url}>
                     {imageUrl && (

@@ -10,7 +10,7 @@ const Sidebar = ({ children }: { children: React.ReactNode }) => {
 
   React.useEffect(() => {
     setIsOpen(false)
-  }, [pathname])
+  }, [pathname, setIsOpen])
 
   return (
     <div

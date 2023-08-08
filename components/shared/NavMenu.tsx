@@ -18,7 +18,7 @@ export function NavMenu({ menuItems }: NavMenuProps) {
                 return null
               }
               return (
-                <div className="col-span-1">
+                <div className="col-span-1" key={key}>
                   <div className="border-b pb-3 pt-2 text-2xl font-black text-white">
                     <Link key={key} href={href}>
                       {menuItem.title}

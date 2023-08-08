@@ -2,9 +2,12 @@ import humanifyDate from 'app/utils/humanifyDate'
 import { AiFillFacebook } from 'react-icons/ai'
 import { AiOutlineTwitter } from 'react-icons/ai'
 import { BiLogoSnapchat } from 'react-icons/bi'
+import type { PortableTextBlock } from '@portabletext/types'
 
 interface HeaderProps {
-  publishedAt: string
+  title?: string
+  publishedAt?: string
+  description?: PortableTextBlock[]
 }
 
 export function Header(props: HeaderProps) {
@@ -12,9 +15,11 @@ export function Header(props: HeaderProps) {
     <div className="mx-auto pt-4 leading-5 text-black">
       <div className="border-neutral-200 mb-5 flex items-center whitespace-nowrap border-t px-0 pb-0 pt-4 text-xs leading-4 sm:px-0">
         <div className="mr-4">
-          <time dateTime="2023-07-21T21:00:00.000Z" itemProp="datePublished">
-            {humanifyDate(props.publishedAt)}
-          </time>
+          {props.publishedAt && (
+            <time dateTime="2023-07-21T21:00:00.000Z" itemProp="datePublished">
+              {humanifyDate(props.publishedAt)}
+            </time>
+          )}
         </div>
         <span className="inline-block">
           <ul className="m-0 flex list-none items-center p-0">

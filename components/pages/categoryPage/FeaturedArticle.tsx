@@ -50,11 +50,11 @@ const FeaturedArticle = ({ article }: FeaturedArticleProps) => {
               <h2>{article.title}</h2>
             </a>
           </h3>
-          <div className="mx-0 mt-2 w-full font-sans text-base leading-7 text-white">
-            <CustomPortableText
-              value={article.overview as PortableTextBlock[]}
-            />
-          </div>
+          {article.overview && (
+            <div className="mx-0 mt-2 w-full font-sans text-base leading-7 text-white">
+              <CustomPortableText value={article.overview} />
+            </div>
+          )}
           <div className="mx-0 mt-2 w-full font-mono text-xs uppercase leading-4 text-white">
             <div className="uppercase">Romano Santos</div>
             <time className="mt-2 block uppercase" dateTime="2023-07-07T08:14">

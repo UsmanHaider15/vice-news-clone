@@ -26,13 +26,13 @@ export default function LatestArticles({
           {/* Latest articles */}
           {latestArticles && latestArticles.length > 0 && (
             <>
-              {latestArticles.map((article) => {
+              {latestArticles.map((article, key) => {
                 const imageUrl =
                   article.coverImage &&
                   urlForImage(article.coverImage)?.fit('crop').url()
 
                 return (
-                  <div className="grid grid-cols-12 border">
+                  <div className="grid grid-cols-12 border" key={key}>
                     <div className="col-span-7 p-4 md:order-last">
                       <div className="pb-2 text-sm font-semibold underline">
                         <Link
@@ -53,11 +53,11 @@ export default function LatestArticles({
                           {article.title}
                         </Link>
                       </h3>
-                      <div className="m-0 hidden pb-2 md:block">
-                        <CustomPortableText
-                          value={article.overview as PortableTextBlock[]}
-                        />
-                      </div>
+                      {article.overview && (
+                        <div className="m-0 hidden pb-2 md:block">
+                          <CustomPortableText value={article.overview} />
+                        </div>
+                      )}
                       <div className="">
                         <div className="text-sm">{article.author?.name}</div>
                         <time className="text-sm">
