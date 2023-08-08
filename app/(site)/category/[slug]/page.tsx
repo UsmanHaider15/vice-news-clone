@@ -41,11 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   })
 }
 
-export async function generateStaticParams() {
-  const client = getClient()
-  const slugs = await client.fetch<string[]>(categoryPagePaths)
-  return slugs.map((slug) => ({ slug }))
-}
+// export async function generateStaticParams() {
+//   const client = getClient()
+//   const slugs = await client.fetch<string[]>(categoryPagePaths)
+//   return slugs.map((slug) => ({ slug }))
+// }
 
 export default async function CategoryPageSlugRoute({ params }: Props) {
   const { slug } = params
