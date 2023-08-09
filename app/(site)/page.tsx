@@ -13,7 +13,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { ArticlePayload, HomePagePayload, SettingsPayload } from 'types'
-import { cookies, headers } from 'next/headers'
+import { headers } from 'next/headers'
 
 export async function generateMetadata(): Promise<Metadata> {
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
@@ -31,15 +31,8 @@ export async function generateMetadata(): Promise<Metadata> {
   })
 }
 
-export default async function IndexRoute({
-  params,
-  searchParams,
-}: {
-  params: { slug: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}) {
-  const authHeader = headers().get('authorization')
-  const theme = cookies().get('theme')
+export default async function IndexRoute() {
+  const header = headers().get('cookies')
 
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
   const client = getClient(preview)
