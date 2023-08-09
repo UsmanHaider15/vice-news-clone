@@ -13,6 +13,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { ArticlePayload, HomePagePayload, SettingsPayload } from 'types'
+import { cookies, headers } from 'next/headers'
 
 export async function generateMetadata(): Promise<Metadata> {
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
@@ -37,6 +38,9 @@ export default async function IndexRoute({
   params: { slug: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  const authHeader = headers().get('authorization')
+  const theme = cookies().get('theme')
+
   const preview = draftMode().isEnabled ? { token: readToken! } : undefined
   const client = getClient(preview)
   const data = await client.fetch<HomePagePayload | null>(homePageQuery)
