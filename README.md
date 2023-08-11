@@ -43,7 +43,7 @@ Your newspaper site can connect to Sanity Content Lake, giving you hosted conten
 
 Use the Deploy Button below. It will let you deploy the starter using Vercel as well as connect it to your Sanity Content Lake using the Sanity Vercel Integration.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FUsmanHaider15%2Fnewspaper-pro)
+[![Deploy with Vercel](https://vercel.com/new/clone?repository-url=https://github.com/UsmanHaider15/vice-news-clone.git&project-name=vice-news-clone&repository-name=vice-news-clone&demo-title=Vice-News-Clone&demo-description=A-Vice-News-Clone-built-using-Nextjs-and-Sanity&demo-url=https://newspaper-pro.vercel.app/&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx&external-id=nextjs)
 
 ### Step 2. Set up the project locally
 
