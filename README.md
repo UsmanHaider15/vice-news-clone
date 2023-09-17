@@ -1,7 +1,3 @@
-> **Note**
-> This project is under construction and miss some of the features.
-> If you have any question or want to create Newspaper website using Next.js and Sanity then contact me directly at my email: usman.haider.developer@gmail.com.
-
 # Next.js Newspaper Website with Native Authoring Experience
 
 This project offers a statically generated newspaper website that leverages Next.js for the frontend and Sanity.io for content management. The included Sanity Studio provides a native authoring experience with features like real-time collaboration, instant content previews, and easy editing.
